@@ -8,7 +8,7 @@ The process model is based on the one found in Istat's [RELAIS user manual](http
 
 The description of the linkage operation should include lineage metadata as specified by the following model provided by Statistics Canada.
 
-![Lineage model](img/Lineage Types.jpg)
+![Lineage model](img/lineage-types.jpg)
 
 (Insert more detail on the operation, in particular the content of lineage information to represent, a description of a specific match between two record, etc.).
 
