@@ -24,7 +24,7 @@ It is recommended in PROV to define sub-classes of `prov:Derivation` for specifi
 
 ![Qualified model](img/record-linkage-2.png)
 
-We can enrich the model by adding information on the agents involved in the matching operation. We will keep the model simple and just suppose that the matching is made by Istat using the RELAIS software. The software will be represented as an instance of the `prov:SoftwareAgent` class, and Istat by an instance of the `coos:Organization`(which is a sub-class of `prov:Organization`). The matching activity is then connected to the RELAIS resource by a `prov:wasAssociatedWith` property.
+We can enrich the model by adding information on the agents involved in the matching operation. We will keep the model simple and just suppose that the matching is made by Istat using the RELAIS software. The software will be represented as an instance of the `prov:SoftwareAgent` class, and Istat by an instance of the `coos:Organization` (which is a sub-class of `prov:Organization`). The matching activity is then connected to the RELAIS resource by a `prov:wasAssociatedWith` property.
 
 ![Model with agents](img/record-linkage-3.png)
 
