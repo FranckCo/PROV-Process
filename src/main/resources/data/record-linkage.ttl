@@ -1,0 +1,63 @@
+@prefix ex-act: <http://example.org/linkage/activity/> .
+@prefix ex:    <http://example.org/linkage/> .
+@prefix ex-prod: <http://example.org/linkage/product/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix coos:  <http://id.unece.org/def/coos#> .
+
+coos:DataSetDerivation
+        rdfs:label       "Data Set Derivation"@en ;
+        rdfs:subClassOf  prov:Derivation .
+
+ex-prod:match  a    coos:StatisticalDataset ;
+        rdfs:label  "Match"@en .
+
+ex-prod:unmatch  a  coos:StatisticalDataset ;
+        rdfs:label  "Unmatch"@en .
+
+ex-prod:inputDatasets
+        a               prov:Collection ;
+        rdfs:label      "Input datasets"@en ;
+        prov:hadMember  ex-prod:inputDbB , ex-prod:inputDbA .
+
+ex-prod:inputDbB  a  coos:StatisticalDataset ;
+        rdfs:label  "Input DB B"@en .
+
+<http://id.istat.it/istat>
+        a           coos:StatisticalOrganization ;
+        rdfs:label  "Istat"@en .
+
+coos:RecordLinkageActivity
+        rdfs:label       "Record Linkage"@en ;
+        rdfs:subClassOf  coos:StatisticalActivity .
+
+ex-prod:outputDatasets
+        a                         prov:Collection ;
+        rdfs:label                "Output datasets"@en ;
+        prov:hadMember            ex-prod:unmatch , ex-prod:possibleMatch , ex-prod:match ;
+        prov:qualifiedDerivation  ex:deriveOutputs ;
+        prov:wasDerivedFrom       ex-prod:inputDatasets ;
+        prov:wasGeneratedBy       ex-act:matchInputDatasets .
+
+ex-prod:possibleMatch
+        a           coos:StatisticalDataset ;
+        rdfs:label  "Possible match"@en .
+
+ex:deriveOutputs  a       coos:DataSetDerivation ;
+        rdfs:label        "Derive outputs"@en ;
+        prov:entity       ex-prod:inputDatasets ;
+        prov:hadActivity  ex-act:matchInputDatasets .
+
+<http://id.istat.it/software/relais>
+        a                     prov:SoftwareAgent ;
+        rdfs:label            "RELAIS"@en ;
+        prov:actedOnBehalfOf  <http://id.istat.it/istat> .
+
+ex-prod:inputDbA  a  coos:StatisticalDataset ;
+        rdfs:label  "Input DB A"@en .
+
+ex-act:matchInputDatasets
+        a                       coos:RecordLinkageActivity ;
+        rdfs:label              "Match input datasets"@en ;
+        prov:used               ex-prod:inputDatasets ;
+        prov:wasAssociatedWith  <http://id.istat.it/software/relais> .
