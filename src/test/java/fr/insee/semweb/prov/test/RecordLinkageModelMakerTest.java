@@ -15,4 +15,5 @@ public class RecordLinkageModelMakerTest {
 		Model codeList = RecordLinkageModelMaker.makeRecordLinkageModel();
 		codeList.write(new FileWriter("src/main/resources/data/record-linkage.ttl"), "TTL");
 	}
+
 }
