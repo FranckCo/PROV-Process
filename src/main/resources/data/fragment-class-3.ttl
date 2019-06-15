@@ -1,0 +1,30 @@
+@prefix ex-act: <http://example.org/linkage/activity/> .
+@prefix ex: <http://example.org/linkage/> .
+@prefix ex-prod: <http://example.org/linkage/product/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqm: <http://purl.org/dqm-vocabulary/v1/dqm#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Linkage-ready index datasets to indexes/blocks
+
+# Should be a prov:Collection? (same question for all the datasets entities)
+# Fully defined in fragment 2, repeated here for completeness
+ex-prod:linkageReadyIndexDatasets a prov:Entity ;
+        rdfs:label "Linkage-ready index datasets"@en .
+
+# Or potentialPairSets / setsPotentialPairs?
+ex-prod:indexesBlocks a prov:Entity ;
+        rdfs:label "Indexes/Blocks"@en ;
+        prov:wasDerivedFrom ex-prod:linkageReadyIndexDatasets ;
+        prov:qualifiedDerivation [
+             a prov:Derivation ;
+             prov:entity ex-prod:linkageReadyIndexDatasets ;
+             prov:hadActivity ex-act:pairsCreation ;
+        ] .
+
+# Corresponds to "search space reduction" in Istat model
+# Graph annotation uses "Identify set of pairs", text uses "Identify potential pairs" (probably better)
+ex-act:pairsCreation a prov:Activity ;
+        rdfs:label "Pairs creation"@en .
