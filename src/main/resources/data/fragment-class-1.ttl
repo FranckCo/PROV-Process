@@ -1,8 +1,8 @@
 @prefix ex-act: <http://example.org/linkage/activity/> .
-@prefix ex:    <http://example.org/linkage/> .
+@prefix ex: <http://example.org/linkage/> .
 @prefix ex-prod: <http://example.org/linkage/product/> .
-@prefix prov:  <http://www.w3.org/ns/prov#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 # Source data sets to source index data sets
