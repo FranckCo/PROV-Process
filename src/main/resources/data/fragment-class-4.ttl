@@ -9,8 +9,8 @@
 
 # Fully defined in fragment 3, repeated here for completeness, name can change
 # Is this one data set or several?
-ex-prod:indexesBlocks a prov:Entity ;
-        rdfs:label "Indexes/Blocks"@en .
+ex-prod:blocks a prov:Entity ;
+        rdfs:label "Blocks"@en .
 
 ex-prod:comparisonOutcomes a prov:Entity ;
         rdfs:label "Comparison outcomes"@en .
@@ -19,7 +19,7 @@ ex-prod:comparisonOutcomes a prov:Entity ;
 # Shouldn't we also have prov:wasDerivedFrom ex-prod:comparisonOutcomes?
 ex-prod:linkageKeys a prov:Entity ;
         rdfs:label "Linkage keys"@en ;
-        prov:wasDerivedFrom ex-prod:indexesBlocks ;
+        prov:wasDerivedFrom ex-prod:blocks ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
              prov:entity ex-prod:indexesBlocks ;
@@ -39,7 +39,7 @@ ex-act:compareAttributes a prov:Activity ;
 ex:comparisonOutcomesGeneration a prov:Generation ;
         rdfs:label "Comparison outcomes generation"@en ;
         prov:activity ex-act:compareAttributes .
-		
+
 # Review naming (esp. name order)
 ex-act:makeLinkageDecisionsDeterministic a prov:Activity ;
         rdfs:label "Make linkage decisions deterministic"@en ;
@@ -63,4 +63,4 @@ ex-prod:totalLinkageWeightPairs a prov:Entity , dqm:DataQualityScore ;
              a prov:Generation ;
              prov:activity ex-act:makeLinkageDecisionsProbalistic ;
              rdfs:comment "The total weight is compared to two thresholds to make decisions as to whether the pair represents a match or non-match. Pairs with a weight between the two thresholds are resolved manually."@en ;
-        ] .		
+        ] .

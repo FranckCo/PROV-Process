@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-# Source data sets to source index data sets
+# Source data sets to standardized data sets
 
 # Should be a prov:Collection? (same question for all the entities)
 ex-prod:sourceDatasets a prov:Entity ;
@@ -14,15 +14,15 @@ ex-prod:sourceDatasets a prov:Entity ;
 # dcterms:isPartOf should be discussed
 # Data set lineage metadata would be attached to the prov:Derivation instance
 # To attach variable lineage metadata, one would need to model the variables of each data set: can we select a simple example?
-ex-prod:sourceIndexDatasets a prov:Entity ;
-        rdfs:label "Source index datasets"@en ;
+ex-prod:standardizedDatasets a prov:Entity ;
+        rdfs:label "Stadardized datasets"@en ;
         prov:wasDerivedFrom ex-prod:sourceDatasets ;
         dcterms:isPartOf ex-prod:sourceDatasets ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
              prov:entity ex-prod:sourceDatasets ;
-             prov:hadActivity ex-act:subsetDatasetsLinkageVariables ;
+             prov:hadActivity ex-act:subsetLinkageVariables ;
         ] .
 
-ex-act:subsetDatasetsLinkageVariables a prov:Activity ;
-        rdfs:label "Subset datasets linkage variables"@en .
+ex-act:subsetLinkageVariables a prov:Activity ;
+        rdfs:label "Subset datasets to linkage variables"@en .

@@ -4,24 +4,32 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# Linkage-ready index datasets to indexes/blocks
+# Linkage-ready datasets to blocks and candidate pairs
 
 # Should be a prov:Collection? (same question for all the datasets entities)
 # Fully defined in fragment 2, repeated here for completeness
-ex-prod:linkageReadyIndexDatasets a prov:Entity ;
-        rdfs:label "Linkage-ready index datasets"@en .
+ex-prod:linkageReadyDatasets a prov:Entity ;
+        rdfs:label "Linkage-ready datasets"@en .
 
-# Or potentialPairSets / setsPotentialPairs, candidate pairs?
-ex-prod:indexesBlocks a prov:Entity ;
-        rdfs:label "Indexes/Blocks"@en ;
-        prov:wasDerivedFrom ex-prod:linkageReadyIndexDatasets ;
+ex-prod:blocks a prov:Entity ;
+        rdfs:label "Blocks"@en ;
+        prov:wasDerivedFrom ex-prod:linkageReadyDatasets ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
-             prov:entity ex-prod:linkageReadyIndexDatasets ;
-             prov:hadActivity ex-act:pairsCreation ;
+             prov:entity ex-prod:linkageReadyDatasets ;
+             prov:hadActivity ex-act:identifyPotentialPairs ;
         ] .
 
+ex-prod:candidatePairs a prov:Entity ;
+        rdfs:label "Candidate pairs"@en ;
+        prov:wasDerivedFrom ex-prod:linkageReadyDatasets ;
+        prov:qualifiedDerivation [
+             a prov:Derivation ;
+             prov:entity ex-prod:linkageReadyDatasets ;
+             prov:hadActivity ex-act:identifyPotentialPairs ;
+        ] .
+
+# A better model would have two activities ("identify blocks" and "identify potential pairs", the latter informed by the former)
 # Corresponds to "search space reduction" in Istat model
-# Graph annotation uses "Identify set of pairs", text uses "Identify potential pairs" (probably better)
-ex-act:pairsCreation a prov:Activity ;
-        rdfs:label "Pairs creation"@en .
+ex-act:identifyPotentialPairs a prov:Activity ;
+        rdfs:label "Identify potential pairs"@en .
