@@ -1,35 +1,33 @@
-@prefix ex-act: <http://example.org/linkage/activity/> .
-@prefix ex: <http://example.org/linkage/> .
-@prefix ex-prod: <http://example.org/linkage/product/> .
+@prefix reclink: <http://example.org/recordlinkage/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 # Linkage-ready datasets to blocks and candidate pairs
 
-# Should be a prov:Collection? (same question for all the datasets entities)
+# Should be a prov:Collection (same for all the datasets entities)
 # Fully defined in fragment 2, repeated here for completeness
-ex-prod:linkageReadyDatasets a prov:Entity ;
+reclink:linkageReadyDatasets a prov:Entity ;
         rdfs:label "Linkage-ready datasets"@en .
 
-ex-prod:blocks a prov:Entity ;
+reclink:blocks a prov:Entity ;
         rdfs:label "Blocks"@en ;
-        prov:wasDerivedFrom ex-prod:linkageReadyDatasets ;
+        prov:wasDerivedFrom reclink:linkageReadyDatasets ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
-             prov:entity ex-prod:linkageReadyDatasets ;
-             prov:hadActivity ex-act:identifyPotentialPairs ;
+             prov:entity reclink:linkageReadyDatasets ;
+             prov:hadActivity reclink:identifyPotentialPairs ;
         ] .
 
-ex-prod:candidatePairs a prov:Entity ;
+reclink:candidatePairs a prov:Entity ;
         rdfs:label "Candidate pairs"@en ;
-        prov:wasDerivedFrom ex-prod:linkageReadyDatasets ;
+        prov:wasDerivedFrom reclink:linkageReadyDatasets ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
-             prov:entity ex-prod:linkageReadyDatasets ;
-             prov:hadActivity ex-act:identifyPotentialPairs ;
+             prov:entity reclink:linkageReadyDatasets ;
+             prov:hadActivity reclink:identifyPotentialPairs ;
         ] .
 
 # A better model would have two activities ("identify blocks" and "identify potential pairs", the latter informed by the former)
 # Corresponds to "search space reduction" in Istat model
-ex-act:identifyPotentialPairs a prov:Activity ;
+reclink:identifyPotentialPairs a prov:Activity ;
         rdfs:label "Identify potential pairs"@en .

@@ -1,28 +1,25 @@
-@prefix ex-act: <http://example.org/linkage/activity/> .
-@prefix ex: <http://example.org/linkage/> .
-@prefix ex-prod: <http://example.org/linkage/product/> .
+@prefix reclink: <http://example.org/recordlinkage/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 # Source data sets to standardized data sets
 
-# Should be a prov:Collection? (same question for all the entities)
-ex-prod:sourceDatasets a prov:Entity ;
+# Should actually be a prov:Collection (same for all the datasets entities)
+reclink:sourceDatasets a prov:Entity ;
         rdfs:label "Source datasets"@en .
 
 # dcterms:isPartOf should be discussed
 # Data set lineage metadata would be attached to the prov:Derivation instance
-# To attach variable lineage metadata, one would need to model the variables of each data set: can we select a simple example?
-ex-prod:standardizedDatasets a prov:Entity ;
-        rdfs:label "Stadardized datasets"@en ;
-        prov:wasDerivedFrom ex-prod:sourceDatasets ;
-        dcterms:isPartOf ex-prod:sourceDatasets ;
+reclink:standardizedDatasets a prov:Entity ;
+        rdfs:label "Standardized datasets"@en ;
+        prov:wasDerivedFrom reclink:sourceDatasets ;
+        dcterms:isPartOf reclink:sourceDatasets ;
         prov:qualifiedDerivation [
              a prov:Derivation ;
-             prov:entity ex-prod:sourceDatasets ;
-             prov:hadActivity ex-act:subsetLinkageVariables ;
+             prov:entity reclink:sourceDatasets ;
+             prov:hadActivity reclink:subsetLinkageVariables ;
         ] .
 
-ex-act:subsetLinkageVariables a prov:Activity ;
+reclink:subsetLinkageVariables a prov:Activity ;
         rdfs:label "Subset datasets to linkage variables"@en .
