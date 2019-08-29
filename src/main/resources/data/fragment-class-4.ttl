@@ -30,7 +30,7 @@ reclink:linkageKeys a prov:Entity ;
              a prov:Derivation ;
              prov:entity reclink:comparisonOutcomes ;
              prov:hadActivity reclink:makeLinkageDecisionsDeterministic ;
-             prov:hadActivity reclink:makeLinkageDecisionsProbalistic ;
+             prov:hadActivity reclink:makeLinkageDecisionsProbabilistic ;
         ] .
 
 reclink:compareRecords a prov:Activity ;
@@ -42,7 +42,7 @@ reclink:makeLinkageDecisionsDeterministic a prov:Activity ;
         rdfs:label "Make linkage decisions deterministic"@en ;
         prov:used reclink:comparisonOutcomes , reclink:logicalConditions .
 
-reclink:makeLinkageDecisionsProbalistic a prov:Activity ;
+reclink:makeLinkageDecisionsProbabilistic a prov:Activity ;
         rdfs:label "Make linkage decisions probabilistic"@en ;
         prov:used reclink:comparisonOutcomes , reclink:linkagePairWeights .
 
